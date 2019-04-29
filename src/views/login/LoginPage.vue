@@ -23,17 +23,17 @@
 
 <script lang="ts">
 import {
-    Component,
-    Vue
+  Component,
+  Vue,
 } from 'vue-property-decorator';
 import Login from '@/views/login/Login.vue';
 import Register from '@/views/login/Register.vue';
 
 @Component({
-    components: {
-        Login,
-        Register
-    }
+  components: {
+    Login,
+    Register,
+  },
 })
 export default class LoginPage extends Vue {}
 </script>

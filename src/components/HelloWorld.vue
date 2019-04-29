@@ -86,9 +86,9 @@
 
 <script lang="ts">
 import {
-    Component,
-    Prop,
-    Vue
+  Component,
+  Prop,
+  Vue,
 } from 'vue-property-decorator';
 
 @Component
@@ -96,7 +96,7 @@ export default class HelloWorld extends Vue {
     @Prop() private msg!: string;
 
     getMessage() {
-        this.$emit('getmessage', this.msg);
+      this.$emit('getmessage', this.msg);
     }
 }
 </script>

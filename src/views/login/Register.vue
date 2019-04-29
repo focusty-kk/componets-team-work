@@ -30,25 +30,26 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import ajax from "../../utils/axios";
-import { mapState, mapMutations } from "vuex";
-import { SOME_MUTATION } from "../../vuex/mutations-types";
+import { Component, Vue } from 'vue-property-decorator';
+import { mapState, mapMutations } from 'vuex';
+import ajax from '../../utils/axios';
+import { SOME_MUTATION } from '../../vuex/mutations-types';
 @Component({
 })
 export default class Register extends Vue {
   form = {
-    name: "",
-    password: ""
+    name: '',
+    password: '',
   };
+
   submitForm() {
     (this.$refs.validateForm as any).validate((valid: boolean) => {
       if (valid) {
-        return ajax.post("/api/register", this.form).then((res: any) => {
+        return ajax.post('/api/register', this.form).then((res: any) => {
           if (res.success) {
-            this.$message.success("注册成功");
+            this.$message.success('注册成功');
           } else {
-            this.$message.error("注册失败");
+            this.$message.error('注册失败');
           }
         });
       }

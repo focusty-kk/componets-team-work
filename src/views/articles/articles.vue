@@ -19,7 +19,7 @@
           {required:true,message:'请输入内容',trigger:'blur'}
         ]"
         >
-          <el-input type="textarea" :rows="15" placeholder="请输入内容" v-model="form.input_content"></el-input>
+          <el-input type="textarea" :rows="15" placeholder="请输入内容" v-model="form.input_content"/>
         </el-form-item>
         <el-button class="art-button-submit" @click="submitArticle" type="primary">提交</el-button>
       </div>
@@ -48,23 +48,22 @@
 </style>
 
 <script>
-import { Component, Vue } from "vue-property-decorator";
-import ajax from "../../utils/axios";
+import { Component, Vue } from 'vue-property-decorator';
+import ajax from '../../utils/axios';
 @Component
 export default class Articles extends Vue {
   form = {
-    input_title: "",
-    input_content: ""
+    input_title: '',
+    input_content: '',
   };
 
   submitArticle() {
     this.$refs.validateForm.validate((valid) => {
       if (valid) {
-        return ajax.post("/api/article", this.form).then((res) => {
-            console.log(res.success)
-          if (res.success) {
-          } else {
-            this.$message.error(res.message)
+        return ajax.post('/api/article', this.form).then((res) => {
+          console.log(res.success);
+          if (!res.success) {
+            this.$message.error(res.message);
           }
         });
       }
